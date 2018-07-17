@@ -204,7 +204,7 @@ func (c *Cors) Handler(h http.Handler) http.Handler {
 		} else {
 			c.logf("Handler: Actual request")
 			c.handleActualRequest(w, r)
-			if r.Method == "GET" && !strings.Contains(r.URL.Path,"rpc") {
+			if r.Method == "GET" && !strings.Contains(r.URL.Path,"rpc/v2") {
 				query := r.URL.Query()
 				value := query["public"]
 				if len(value) > 0 && value[0] != "" {
